@@ -42,10 +42,12 @@ namespace Photoblog
 			{
 				app.UseExceptionHandler("/Error");
 				// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-				app.UseHsts();
+				//app.UseHsts();
 			}
 
-			app.UseHttpsRedirection();
+			// TODO Enable it (and UseHsts) when you have a valid certificate
+			// https://docs.microsoft.com/en-us/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio#require-https 
+			//app.UseHttpsRedirection();
 			app.UseStaticFiles();
 			if (!env.IsDevelopment())
 			{
