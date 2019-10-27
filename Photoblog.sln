@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29311.281
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Photoblog", "Photoblog\Photoblog.csproj", "{1863CB05-78EF-4B0C-9415-AA6E532686FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Photoblog", "Photoblog\Photoblog.csproj", "{1863CB05-78EF-4B0C-9415-AA6E532686FC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoblogDataAccess", "PhotoblogDataAccess\PhotoblogDataAccess.csproj", "{46C734FD-3F66-4819-8309-C10DBF965F90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoBlogDataAccessCLI", "PhotoBlogDataAccessCLI\PhotoBlogDataAccessCLI.csproj", "{4D5038EE-5BAC-49EA-BB13-F2D596911845}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{1863CB05-78EF-4B0C-9415-AA6E532686FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1863CB05-78EF-4B0C-9415-AA6E532686FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1863CB05-78EF-4B0C-9415-AA6E532686FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46C734FD-3F66-4819-8309-C10DBF965F90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46C734FD-3F66-4819-8309-C10DBF965F90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46C734FD-3F66-4819-8309-C10DBF965F90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46C734FD-3F66-4819-8309-C10DBF965F90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D5038EE-5BAC-49EA-BB13-F2D596911845}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D5038EE-5BAC-49EA-BB13-F2D596911845}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D5038EE-5BAC-49EA-BB13-F2D596911845}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D5038EE-5BAC-49EA-BB13-F2D596911845}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
