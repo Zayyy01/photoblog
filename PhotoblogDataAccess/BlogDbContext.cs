@@ -35,9 +35,7 @@ namespace PhotoblogDataAccess
 
 			modelBuilder.Entity<Image>(eb =>
 			{
-				//eb.HasNoKey();
 				eb.HasKey("StreamId");
-				//eb.ToView("ImageStoreView");
 				eb.ToTable("ImageStoreView");
 				eb.Property(v => v.StreamId).HasColumnName("stream_id");
 				eb.Property(v => v.FileStream).HasColumnName("file_stream");
