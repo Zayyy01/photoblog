@@ -22,9 +22,6 @@ namespace PhotoBlogDataAccessCLI
 			var images = context.Images.ToList();
 			var image = images.First();
 			Console.WriteLine(image.Name);
-			image.Name = "testImage.jpg";
-			context.SaveChanges();
-			Console.WriteLine(image.Name);
 			Console.ReadKey();
 		}
 	}
