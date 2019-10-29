@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
-
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Configuration.EnvironmentVariables;
-using PhotoblogDataAccess;
+using PhotoblogInfrastructure;
 
 namespace PhotoBlogDataAccessCLI
 {

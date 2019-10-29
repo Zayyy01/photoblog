@@ -30,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PhotoblogDataAccess\PhotoblogDataAccess.csproj" />
+    <ProjectReference Include="..\PhotoblogInfrastructure\PhotoblogInfrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
