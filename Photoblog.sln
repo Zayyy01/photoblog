@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoblogInfrastructure", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoBlogDataAccessCLI", "PhotoBlogDataAccessCLI\PhotoBlogDataAccessCLI.csproj", "{4D5038EE-5BAC-49EA-BB13-F2D596911845}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoblogCore", "PhotoblogCore\PhotoblogCore.csproj", "{97816BBB-EBBC-431C-92A3-E99E05D7EACE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
