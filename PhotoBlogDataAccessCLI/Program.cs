@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
-
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Configuration.EnvironmentVariables;
-using PhotoblogDataAccess;
+using PhotoblogInfrastructure;
 
 namespace PhotoBlogDataAccessCLI
 {
@@ -21,9 +18,6 @@ namespace PhotoBlogDataAccessCLI
 
 			var images = context.Images.ToList();
 			var image = images.First();
-			Console.WriteLine(image.Name);
-			image.Name = "testImage.jpg";
-			context.SaveChanges();
 			Console.WriteLine(image.Name);
 			Console.ReadKey();
 		}
