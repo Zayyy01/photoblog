@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
 using PhotoblogCore.Entities;
 using PhotoblogCore.Interfaces;
 
@@ -9,11 +10,7 @@ namespace PhotoblogInfrastructure
 		private readonly string _connectionString;
 		// ReSharper disable once UnusedAutoPropertyAccessor.Global
 		public DbSet<Image> Images { get; set; }
-
-		public BlogDbContext(DbContextOptions options) : base(options)
-		{
-
-		}
+		
 
 		public BlogDbContext(string connectionString)
 		{
@@ -25,7 +22,7 @@ namespace PhotoblogInfrastructure
 			if (_connectionString != null)
 				optionsBuilder.UseSqlServer(_connectionString);
 			else
-				base.OnConfiguring(optionsBuilder);
+				throw new ArgumentNullException(nameof(_connectionString), "Connection string not provided!");
 		}
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
