@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using PhotoblogInfrastructure;
+using PhotoblogCore.Interfaces;
 
 namespace Photoblog.Controllers
 {
@@ -17,10 +17,10 @@ namespace Photoblog.Controllers
 			"Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
 		};
 
-		private readonly BlogDbContext _context;
+		private readonly IBlogDbContext _context;
 		private readonly ILogger<WeatherForecastController> _logger;
 
-		public WeatherForecastController(ILogger<WeatherForecastController> logger, BlogDbContext context)
+		public WeatherForecastController(ILogger<WeatherForecastController> logger, IBlogDbContext context)
 		{
 			_logger = logger;
 			_context = context;

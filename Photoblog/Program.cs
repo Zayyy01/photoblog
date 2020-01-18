@@ -1,5 +1,7 @@
+using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 
 namespace Photoblog
 {
@@ -10,8 +12,12 @@ namespace Photoblog
 			CreateWebHostBuilder(args).Build().Run();
 		}
 
-		public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-			WebHost.CreateDefaultBuilder(args)
-				.UseStartup<Startup>();
+		public static IHostBuilder CreateWebHostBuilder(string[] args) =>
+			Host.CreateDefaultBuilder(args)
+				.UseServiceProviderFactory(new AutofacServiceProviderFactory())
+				.ConfigureWebHostDefaults(webHostBuilder =>
+				{
+					webHostBuilder.UseStartup<Startup>();
+				});
 	}
 }

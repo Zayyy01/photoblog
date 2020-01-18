@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PhotoblogCore.Entities;
+using PhotoblogCore.Interfaces;
 
 namespace PhotoblogInfrastructure
 {
-	public class BlogDbContext : DbContext
+	public class BlogDbContext : DbContext, IBlogDbContext
 	{
 		private readonly string _connectionString;
 		// ReSharper disable once UnusedAutoPropertyAccessor.Global
