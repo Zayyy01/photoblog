@@ -4,6 +4,7 @@ namespace PhotoblogCore.Entities
 {
 	public class Image
 	{
+		// ReSharper disable UnusedAutoPropertyAccessor.Global
 		public Guid StreamId { get; set; }
 		public byte[] FileStream { get; set; }
 		public string Name { get; set; }
@@ -21,6 +22,6 @@ namespace PhotoblogCore.Entities
 		public bool IsArchive { get; set; }
 		public bool IsSystem { get; set; }
 		public bool IsTemporary { get; set; }
-
+		// ReSharper restore UnusedAutoPropertyAccessor.Global
 	}
 }

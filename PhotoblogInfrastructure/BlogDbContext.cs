@@ -1,14 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PhotoblogCore.Entities;
+using PhotoblogCore.Interfaces;
 
 namespace PhotoblogInfrastructure
 {
-	public class BlogDbContext : DbContext
+	public class BlogDbContext : DbContext, IBlogDbContext
 	{
-		private string _connectionString;
+		private readonly string _connectionString;
+		// ReSharper disable once UnusedAutoPropertyAccessor.Global
 		public DbSet<Image> Images { get; set; }
 
-		public BlogDbContext(DbContextOptions<BlogDbContext> options) : base(options)
+		public BlogDbContext(DbContextOptions options) : base(options)
 		{
 
 		}
