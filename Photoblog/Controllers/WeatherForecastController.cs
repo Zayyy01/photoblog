@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PhotoblogInfrastructure;
@@ -12,12 +11,13 @@ namespace Photoblog.Controllers
 	[Route("[controller]")]
 	public class WeatherForecastController : ControllerBase
 	{
+		// ReSharper disable once UnusedMember.Local
 		private static readonly string[] Summaries = new[]
 		{
 			"Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
 		};
 
-		private BlogDbContext _context;
+		private readonly BlogDbContext _context;
 		private readonly ILogger<WeatherForecastController> _logger;
 
 		public WeatherForecastController(ILogger<WeatherForecastController> logger, BlogDbContext context)
@@ -29,8 +29,9 @@ namespace Photoblog.Controllers
 		[HttpGet]
 		public IEnumerable<WeatherForecast> Get()
 		{
-			var img = _context.Images.ToList().First();
+			_logger.Log(logLevel: LogLevel.Trace, "WeatherForecastController-get");
 
+			var img = _context.Images.ToList().First();
 			var rng = new Random();
 			return Enumerable.Range(1, 5).Select(index => new WeatherForecast
 			{

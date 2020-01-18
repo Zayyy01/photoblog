@@ -5,10 +5,11 @@ namespace PhotoblogInfrastructure
 {
 	public class BlogDbContext : DbContext
 	{
-		private string _connectionString;
+		private readonly string _connectionString;
+		// ReSharper disable once UnusedAutoPropertyAccessor.Global
 		public DbSet<Image> Images { get; set; }
 
-		public BlogDbContext(DbContextOptions<BlogDbContext> options) : base(options)
+		public BlogDbContext(DbContextOptions options) : base(options)
 		{
 
 		}
