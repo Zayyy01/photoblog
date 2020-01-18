@@ -2,6 +2,17 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "CLI Build",
+            "command": "dotnet",
+            "args": [
+                "build",
+                "${workspaceFolder}/PhotoBlogDataAccessCLI/PhotoBlogDataAccessCLI.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "label": "build",
             "command": "dotnet",
             "type": "process",
@@ -23,7 +34,8 @@
             "args": [
                 "${workspaceFolder}",
                 "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
+                "/consoleloggerparameters:NoSummary",
+                "Debug"
             ],
         },
         {

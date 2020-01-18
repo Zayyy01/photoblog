@@ -37,6 +37,10 @@ namespace Photoblog
 
 		public void ConfigureContainer(ContainerBuilder builder)
 		{
+
+			if(Configuration.GetConnectionString("BlogDbConnectionString") == null) 
+				throw new System.ArgumentNullException("BlogDbConnectionString","No Db Connection string provided in the configuration!");
+			
 			var executingAssembly = Assembly.GetExecutingAssembly();
 			var path = executingAssembly.Location.Replace(executingAssembly.ManifestModule.Name, "");
 			var infrastructureDllPath = Path.Combine(path, "PhotoblogInfrastructure.dll");
