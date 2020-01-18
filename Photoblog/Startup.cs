@@ -1,12 +1,14 @@
+using System.IO;
+using System.Reflection;
+using Autofac;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using PhotoblogInfrastructure;
+using System.Runtime.Loader;
+using PhotoblogCore.Interfaces;
 
 namespace Photoblog
 {
@@ -31,9 +33,27 @@ namespace Photoblog
 			{
 				configuration.RootPath = "ClientApp/dist";
 			});
+		}
 
-			services.AddDbContext<BlogDbContext>(options =>
-				options.UseSqlServer(Configuration.GetConnectionString("BlogDbConnectionString")));
+		public void ConfigureContainer(ContainerBuilder builder)
+		{
+
+			if(Configuration.GetConnectionString("BlogDbConnectionString") == null) 
+				throw new System.ArgumentNullException("BlogDbConnectionString","No Db Connection string provided in the configuration!");
+			
+			var executingAssembly = Assembly.GetExecutingAssembly();
+			var path = executingAssembly.Location.Replace(executingAssembly.ManifestModule.Name, "");
+			var infrastructureDllPath = Path.Combine(path, "PhotoblogInfrastructure.dll");
+
+
+			// https://stackoverflow.com/questions/53989393/is-there-an-alternative-for-buildmanager-getreferencedassemblies-in-asp-net-co
+			var assembly = AssemblyLoadContext.Default.LoadFromAssemblyPath(infrastructureDllPath);
+
+			//Add Db connection
+			builder.RegisterAssemblyTypes(assembly)
+				.Where(t => t.Name.EndsWith("Context"))
+				.WithParameter(new TypedParameter(typeof(string), Configuration.GetConnectionString("BlogDbConnectionString")))
+				.As(typeof(IBlogDbContext));
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -5,16 +5,16 @@ using PhotoblogInfrastructure;
 
 namespace PhotoBlogDataAccessCLI
 {
-	class Program
+	public class Program
 	{
-		static void Main(string[] args)
+		public static void Main()
 		{
 
 			var config = new ConfigurationBuilder()
 				.AddEnvironmentVariables()
 				.Build();
 
-			using BlogDbContext context = new BlogDbContext(config.GetConnectionString("BlogDbConnectionString"));
+			using var context = new BlogDbContext(config.GetConnectionString("BlogDbConnectionString"));
 
 			var images = context.Images.ToList();
 			var image = images.First();
