@@ -13,7 +13,7 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "buildecho Hello",
+            "label": "build",
             "command": "dotnet",
             "type": "process",
             "args": [
